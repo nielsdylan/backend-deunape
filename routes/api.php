@@ -15,6 +15,7 @@ Route::middleware([JwtMiddleware::class])->group(function(){
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
         Route::post('/logged-user', [AuthController::class, 'loggedUser'])->name('me');
         Route::post('/refresh-token', [AuthController::class, 'refreshToken'])->name('refresh');
+        Route::post('/session-token', [AuthController::class, 'sessionToken'])->name('session-token');
     });
 
 

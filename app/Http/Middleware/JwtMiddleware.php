@@ -24,13 +24,13 @@ class JwtMiddleware
         } catch (Exception $e) {
 
             if($e instanceof TokenInvalidException){
-                return response()->json(["status"=>"Invalid Token"]);
+                return response()->json(["status"=>"Invalid Token", "session"=>false]);
             }
 
             if ($e instanceof TokenExpiredException) {
-                return response()->json(["status"=>"Experid Token"]);
+                return response()->json(["status"=>"Experid Token", "session"=>false]);
             }
-            return response()->json(["status"=>"Token not fount"]);
+            return response()->json(["status"=>"Token not fount", "session"=>false]);
         }
         return $next($request);
     }

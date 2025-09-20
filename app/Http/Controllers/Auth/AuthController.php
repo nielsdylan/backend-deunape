@@ -101,4 +101,9 @@ class AuthController extends Controller
             'expires_in' => Auth::factory()->getTTL() * 60
         ]);
     }
+    public function sessionToken() {
+        $session = Auth::user() ? true : false;
+
+        return response()->json(["status"=>"Validated Token", "session"=>$session]);
+    }
 }
